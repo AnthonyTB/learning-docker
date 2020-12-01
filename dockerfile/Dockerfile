@@ -1,3 +1,9 @@
 FROM node:12-stretch
 
-CMD ["node", "-e", "console.log(\"hi lol\")"]
+USER node
+
+WORKDIR /home/node/src
+
+COPY --chown=node:node index.js index.js
+
+CMD ["node", "index.js"]
